@@ -8,4 +8,4 @@ Para evidencia automatizada, ejecute `mvn clean test`: `ListaDobleTest` contiene
 
 El 29 de octubre de 2026 se ejecutó `mvn clean test` con JDK 21: **23 pruebas ejecutadas, 0 fallos, 0 errores y 0 omitidas**. Las primeras 15 corresponden exactamente a CP-01 a CP-15; las 8 restantes cubren los casos límite anteriores.
 
-No se incluyen capturas fabricadas. Consulte `docs/evidencias/CAPTURAS_MANUALES.md` para una lista reproducible de capturas: cargue los ejemplos, abra Inicio, Nueva orden, Editar orden, Estructura y Pruebas, y capture cada pantalla de la aplicación ejecutada.
+Las capturas reales disponibles se incorporan en `docs/evidencias/capturas/`: Dashboard, gestión de órdenes, nueva orden, edición, estructura con cinco nodos e inicio del laboratorio. La captura del laboratorio muestra correctamente **15 pendientes**, por lo que no se utiliza como prueba visual de una ejecución aprobada. Consulte `docs/evidencias/CAPTURAS_MANUALES.md` para completar los recorridos, la ejecución aprobada del laboratorio y la salida JUnit sin fabricar evidencias.
