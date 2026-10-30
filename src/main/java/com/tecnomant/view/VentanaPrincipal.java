@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import java.io.File;
@@ -52,11 +53,21 @@ public final class VentanaPrincipal {
     }
     private ImageView imagen(String recurso,double ancho,double alto){ImageView v=new ImageView(new Image(getClass().getResourceAsStream(recurso)));v.setFitWidth(ancho);v.setFitHeight(alto);v.setPreserveRatio(true);return v;}
     private Node menu() {
-        VBox box=new VBox(8);box.setPadding(new Insets(20,12,20,12));box.setPrefWidth(228);box.getStyleClass().add("sidebar");
+        VBox box=new VBox(8);box.setPadding(new Insets(20,12,15,12));box.setPrefWidth(228);box.getStyleClass().add("sidebar");
         inicio=nav("Inicio", "home", ()->mostrarDashboard(true)); ordenes=nav("Órdenes", "orders", ()->mostrarDashboard(false)); nueva=nav("Nueva orden", "plus", this::mostrarNueva);
         editar=nav("Editar orden", "edit", this::mostrarEdicion); estructura=nav("Estructura", "nodes", this::mostrarEstructura); pruebas=nav("Pruebas", "flask", this::mostrarPruebas);
         Region empuje=new Region();VBox.setVgrow(empuje,Priority.ALWAYS);
-        Label version=Componentes.etiqueta("TecnoMant Solutions\nv1.0.0", "text-muted"); box.getChildren().addAll(inicio,ordenes,nueva,editar,estructura,pruebas,empuje,version);return box;
+        StackPane ciudad=ciudadFuturista(box); VBox footer=new VBox(2,Componentes.etiqueta("TecnoMant Solutions", "sidebar-brand"),Componentes.etiqueta("v1.0.0", "sidebar-version"));
+        box.getChildren().addAll(inicio,ordenes,nueva,editar,estructura,pruebas,empuje,ciudad,footer);return box;
+    }
+    /** Panel decorativo no interactivo: la imagen se instancia una vez desde el classpath. */
+    private StackPane ciudadFuturista(VBox sidebar){
+        StackPane panel=new StackPane();panel.getStyleClass().add("sidebar-city");panel.setMinHeight(205);panel.prefHeightProperty().bind(sidebar.heightProperty().multiply(.40));panel.setMouseTransparent(true);
+        Image ciudad=new Image(getClass().getResource("/images/futuristic-city.png").toExternalForm(),true);Region fondo=new Region();fondo.setMaxSize(Double.MAX_VALUE,Double.MAX_VALUE);fondo.setBackground(new Background(new BackgroundImage(ciudad,BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,new BackgroundSize(100,100,true,true,false,true))));
+        Rectangle recorte=new Rectangle();recorte.widthProperty().bind(panel.widthProperty());recorte.heightProperty().bind(panel.heightProperty());panel.setClip(recorte);
+        Region degradado=new Region();degradado.setMaxSize(Double.MAX_VALUE,Double.MAX_VALUE);degradado.getStyleClass().add("city-overlay");
+        Label mensaje=Componentes.etiqueta("Mantenimiento que\nimpulsa tu industria", "city-message");Region acento=new Region();acento.getStyleClass().add("city-accent");acento.setPrefSize(42,3);VBox texto=new VBox(10,mensaje,acento);texto.getStyleClass().add("city-copy");
+        panel.getChildren().addAll(fondo,degradado,texto);StackPane.setAlignment(texto,Pos.BOTTOM_LEFT);StackPane.setMargin(texto,new Insets(0,0,20,18));return panel;
     }
     private Button nav(String texto,String icono,Runnable accion){Button b=new Button(texto);ImageView i=Componentes.icono(icono,21);if(i!=null)b.setGraphic(i);b.setMaxWidth(Double.MAX_VALUE);b.getStyleClass().add("nav-button");b.setOnAction(e->accion.run());return b;}
     private void activo(Button actual){quitarActivo(inicio);quitarActivo(ordenes);quitarActivo(nueva);quitarActivo(editar);quitarActivo(estructura);quitarActivo(pruebas);actual.getStyleClass().add("nav-active");}

@@ -6,6 +6,12 @@
 .top-date { -fx-text-fill: #A9C2E2; -fx-font-size: 12px; }
 .user-label { -fx-font-weight: bold; -fx-text-fill: #F2F6FC; }
 .sidebar { -fx-background-color: linear-gradient(to bottom, #0D1A2C 0%, #0B1728 70%, #0a203b 100%); -fx-border-color: #203e5f; -fx-border-width: 0 1 0 0; }
+.sidebar-city { -fx-background-color: #081629; -fx-background-radius: 12px; -fx-border-color: #1f5689; -fx-border-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(20,125,248,.24), 15, .18, 0, 0); }
+.city-overlay { -fx-background-color: linear-gradient(to bottom, rgba(10, 23, 42, .96) 0%, rgba(10, 23, 42, .50) 28%, rgba(6, 15, 28, .22) 58%, rgba(5, 13, 24, .80) 100%); }
+.city-copy { -fx-padding: 0; }
+.city-message { -fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,.9), 6, .35, 0, 2); }
+.city-accent { -fx-background-color: linear-gradient(to right, #29a6ff, #1479F8); -fx-background-radius: 4px; }
+.sidebar-brand { -fx-font-size: 11px; -fx-text-fill: #B8D2EE; -fx-font-weight: bold; }.sidebar-version { -fx-font-size: 10px; -fx-text-fill: #7394B7; }
 .nav-button { -fx-alignment: CENTER_LEFT; -fx-content-display: LEFT; -fx-graphic-text-gap: 13; -fx-background-color: transparent; -fx-text-fill: #C8D9EF; -fx-font-size: 14px; -fx-padding: 13 14; -fx-background-radius: 9px; }
 .nav-button:hover { -fx-background-color: #173554; }
 .nav-active { -fx-background-color: linear-gradient(to right, #1479F8, #1252a4); -fx-text-fill: white; -fx-font-weight: bold; }
