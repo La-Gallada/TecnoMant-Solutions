@@ -9,9 +9,9 @@ Alcance: Prueba 1 de Estructuras de Datos
 Se ejecutó desde la raíz del proyecto, con JDK 21 y Maven 3.9.9:
 
 ```powershell
-$env:JAVA_HOME = 'C:\Program Files\Java\jdk-21.0.12.1'
+$env:JAVA_HOME = 'C:\ruta\a\jdk-21'
 $env:Path = "$env:JAVA_HOME\bin;$env:Path"
-.\.tools\apache-maven-3.9.9\bin\mvn.cmd -Dmaven.repo.local=E:\U\TecnoMant-Solutions\.m2-repository clean test
+mvn clean test
 ```
 
 Resultado: **BUILD SUCCESS**. JUnit ejecutó **23 pruebas**, con **0 fallos**, **0 errores** y **0 omitidas**. El informe XML y de texto de Surefire se genera bajo `target/surefire-reports/` cuando se reproduce el comando.

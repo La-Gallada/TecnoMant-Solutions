@@ -17,7 +17,7 @@ mvn javafx:run
 En Windows, si hay más de un JDK instalado, configure temporalmente la terminal:
 
 ```powershell
-$env:JAVA_HOME = 'C:\Program Files\Java\jdk-21.0.12.1'
+$env:JAVA_HOME = 'C:\ruta\a\jdk-21'
 $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 ```
 

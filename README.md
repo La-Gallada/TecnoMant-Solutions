@@ -8,6 +8,13 @@ Aplicación empresarial de escritorio para gestionar órdenes de mantenimiento m
 - Maven 3.9 o superior.
 - Windows 10/11 para la ejecución visual prevista.
 
+## Tecnologías y características
+
+- Java 21, JavaFX, Maven, CSS de JavaFX y JUnit 5.
+- Lista doblemente enlazada manual con `Nodo`, `primero`, `ultimo` y `cantidad`.
+- Registro, consulta, búsqueda, actualización, eliminación y recorridos bidireccionales.
+- Visualizador de nodos, verificación de integridad y Laboratorio CP-01 a CP-15.
+
 No requiere base de datos ni servicios externos. Las órdenes viven únicamente en memoria y `ListaDoble` es su fuente de verdad.
 
 ## Ejecutar en Windows
@@ -15,7 +22,7 @@ No requiere base de datos ni servicios externos. Las órdenes viven únicamente 
 Desde la raíz del proyecto:
 
 ```powershell
-$env:JAVA_HOME = 'C:\Program Files\Java\jdk-21.0.12.1'
+$env:JAVA_HOME = 'C:\ruta\a\jdk-21'
 $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 java -version
 mvn -version
@@ -44,6 +51,16 @@ Si Maven no está disponible globalmente, utilice una instalación local de Mave
 | Pruebas | `src/test/java/` | CP-01 a CP-15 y casos límite. |
 
 `ObservableList` se utiliza exclusivamente para presentar una proyección obtenida mediante recorridos de `ListaDoble`; no almacena ni sustituye la estructura principal.
+
+## Estructura de carpetas
+
+```text
+src/main/java/com/tecnomant/   Código Java por capas
+src/main/resources/            CSS, iconos e imágenes
+src/test/java/                 Pruebas JUnit
+docs/                          Arquitectura, defensa, matriz y evidencias
+pom.xml                        Configuración Maven
+```
 
 ## Evidencias y documentación
 
